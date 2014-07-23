@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/api-app/!svn/ver/2/trunk/app/src/test/java/com/tivamo/paypal/restapi
+END
+GenerateAccessToken.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/api-app/!svn/ver/2/trunk/app/src/test/java/com/tivamo/paypal/restapi/GenerateAccessToken.java
+END
+GetPayment.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/api-app/!svn/ver/2/trunk/app/src/test/java/com/tivamo/paypal/restapi/GetPayment.java
+END
+RefundSale.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/api-app/!svn/ver/2/trunk/app/src/test/java/com/tivamo/paypal/restapi/RefundSale.java
+END
+sdk_config.properties
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/api-app/!svn/ver/2/trunk/app/src/test/java/com/tivamo/paypal/restapi/sdk_config.properties
+END
+PaymentWithPayPalServlet.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/api-app/!svn/ver/2/trunk/app/src/test/java/com/tivamo/paypal/restapi/PaymentWithPayPalServlet.java
+END
+PaymentWithCreditCard.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/api-app/!svn/ver/2/trunk/app/src/test/java/com/tivamo/paypal/restapi/PaymentWithCreditCard.java
+END

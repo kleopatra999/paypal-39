@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/api-app/!svn/ver/2/trunk/app/src/test/java/com/tivamo/paypal/classicapi
+END
+CreditCard.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/api-app/!svn/ver/2/trunk/app/src/test/java/com/tivamo/paypal/classicapi/CreditCard.java
+END
+Pay.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/api-app/!svn/ver/2/trunk/app/src/test/java/com/tivamo/paypal/classicapi/Pay.java
+END
+PayPalDeductTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/api-app/!svn/ver/2/trunk/app/src/test/java/com/tivamo/paypal/classicapi/PayPalDeductTest.java
+END
+sdk_config.properties
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/api-app/!svn/ver/2/trunk/app/src/test/java/com/tivamo/paypal/classicapi/sdk_config.properties
+END
+GetPayPalPaymentDetails.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/api-app/!svn/ver/2/trunk/app/src/test/java/com/tivamo/paypal/classicapi/GetPayPalPaymentDetails.java
+END
+ExecutePayment.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/api-app/!svn/ver/2/trunk/app/src/test/java/com/tivamo/paypal/classicapi/ExecutePayment.java
+END

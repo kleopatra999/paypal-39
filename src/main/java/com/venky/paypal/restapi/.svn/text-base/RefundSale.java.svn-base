@@ -1,0 +1,105 @@
+package com.tivamo.paypal.restapi;
+
+import java.io.IOException;
+import java.io.InputStream;
+
+import com.paypal.api.payments.Amount;
+import com.paypal.api.payments.Payment;
+import com.paypal.api.payments.Refund;
+import com.paypal.api.payments.Sale;
+import com.paypal.api.payments.SubTransaction;
+import com.paypal.api.payments.Transaction;
+import com.paypal.core.rest.APIContext;
+import com.paypal.core.rest.PayPalRESTException;
+import com.paypal.core.rest.PayPalResource;
+
+/**
+* @author venky
+* 
+*/
+public class RefundSale {
+	
+	public static void main(String[] args) throws Exception {
+		new RefundSale().init();
+		new RefundSale().doPost();
+	}
+
+	public void init() throws Exception {
+		// ##Load Configuration
+		// Load SDK configuration for
+		// the resource. This intialization code can be
+		// done as Init Servlet.
+		InputStream is = RefundSale.class.getResourceAsStream("sdk_config.properties");
+		try {
+			PayPalResource.initConfig(is);
+		} catch (PayPalRESTException e) {
+			e.printStackTrace();
+		}
+
+	}
+
+	protected void doPost() throws IOException {
+		try {
+			String paymentId = "PAY-4YV15391L5287131KKMM2HQA";
+
+			String accessToken = GenerateAccessToken.getAccessToken();
+
+			Payment payment = Payment.get(accessToken, paymentId);
+			// ###Sale
+			// A sale transaction.
+			// Create a Sale object with the
+			// given sale transaction id.
+			Transaction transaction = payment.getTransactions().get(0);
+			SubTransaction subTransaction = transaction.getRelatedResources().get(0);
+			String saleId = subTransaction.getSale().getId();
+			System.out.println("SaleId:" + saleId);
+			
+			Sale sale = new Sale();
+			sale.setId(saleId);
+
+			// ###Refund
+			// A refund transaction.
+			// Use the amount to create
+			// a refund object
+			Refund refund = new Refund();
+			// ###Amount
+			// Create an Amount object to
+			// represent the amount to be
+			// refunded. Create the refund object, if the refund is partial
+			Amount amount = new Amount();
+			amount.setCurrency("USD");
+			amount.setTotal("0.01");
+			//refund.setAmount(amount);
+			// ###AccessToken
+			// Retrieve the access token from
+			// OAuthTokenCredential by passing in
+			// ClientID and ClientSecret
+			// It is not mandatory to generate Access Token on a per call basis.
+			// Typically the access token can be generated once and
+			// reused within the expiry window
+			//String accessToken = GenerateAccessToken.getAccessToken();
+
+			// ### Api Context
+			// Pass in a `ApiContext` object to authenticate
+			// the call and to send a unique request id
+			// (that ensures idempotency). The SDK generates
+			// a request id if you do not pass one explicitly.
+			APIContext apiContext = new APIContext(accessToken);
+			// Use this variant if you want to pass in a request id
+			// that is meaningful in your application, ideally
+			// a order id.
+			/*
+			 * String requestId = Long.toString(System.nanoTime(); APIContext
+			 * apiContext = new APIContext(accessToken, requestId ));
+			 */
+
+			// Refund by posting to the APIService
+			// using a valid AccessToken
+			sale.refund(apiContext, refund);
+			System.out.println("response: " + Sale.getLastResponse());
+		} catch (PayPalRESTException e) {
+			e.printStackTrace();
+		}
+	}
+
+}
